@@ -13,6 +13,10 @@ def index_view(request):
     }
     return render(request, 'index.html', response)
 
-class AuthorView(generics.ListAPIView):
+class AuthorView(generics.ListCreateAPIView):
     model=Author
+    serializer_class = AuthorSerializer
+
+class AuthorInstanceView(generics.RetrieveAPIView):
+    model = Author
     serializer_class = AuthorSerializer
